@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "lib": ["es7", "es2015.iterable", "dom"],
+    "types": ["jest"],
+    "noEmit": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": false,
+    "inlineSourceMap": true
+  },
+  "ts-node": {
+    "ignore": ["prepare-tests.ts"]
+  },
+  "exclude": ["__tests__/__fixtures__"]
+}

@@ -1,0 +1,34 @@
+Description: disable testing
+Author: Julien Puydt
+Forwarded: Debian-specific
+Reviewed-By: Yadd <yadd@debian.org>
+Last-Update: 2023-12-13
+
+--- a/build.ts
++++ b/build.ts
+@@ -2,8 +2,6 @@
+ import * as path from 'path';
+ import { FLOW_FILENAME, TYPESCRIPT_FILENAME, writeFileAsync } from './utils';
+ 
+-import { runCLI } from 'jest';
+-
+ if (process.argv.includes('--start')) {
+   trigger()
+     .then(() => {
+@@ -41,8 +39,6 @@
+   const [flow, typescript] = await Promise.all([unformattedFlow, unformattedTypescript]);
+   console.info(`Writing files...`);
+   await Promise.all([writeFileAsync(FLOW_FILENAME, flow), writeFileAsync(TYPESCRIPT_FILENAME, typescript)]);
+-  console.info('Testing...');
+-  await testing();
+ }
+ 
+ async function create() {
+@@ -56,7 +52,3 @@
+   const { default: generateTypescript } = await import('./src/typescript');
+   return { unformattedFlow: await generateFlow(), unformattedTypescript: await generateTypescript() };
+ }
+-
+-function testing() {
+-  return runCLI({ testMatch: ['**/__tests__/dist.*.ts'], runInBand: true } as any, [__dirname]);
+-}
