@@ -1,0 +1,36 @@
+Description: don't depend on request but on got
+Author: Julien Puydt
+Forwarded: https://github.com/frenic/csstype/issues/117
+
+--- a/src/utils/urls.ts
++++ b/src/utils/urls.ts
+@@ -1,7 +1,7 @@
+ import * as fs from 'fs';
+ import * as jsdom from 'jsdom';
+ import * as path from 'path';
+-import * as request from 'request';
++import got from 'got';
+ import * as Turndown from 'turndown';
+ import { error, warn } from './logger';
+ 
+@@ -19,18 +19,8 @@
+ 
+ async function scrapeSummary(url: string): Promise<string | undefined> {
+   try {
+-    const htmlContents: string = await new Promise((resolve, reject) => {
+-      request(url, (e, response, body) => {
+-        if (e) {
+-          reject(e);
+-        } else if (response.statusCode < 200 || response.statusCode >= 300) {
+-          reject(`Response status code ${response.statusCode}`);
+-        } else {
+-          resolve(body);
+-        }
+-      });
+-    });
+-
++    //@ts-ignore
++    const htmlContents: string = (await got(url)).body;
+     const { window } = new jsdom.JSDOM(htmlContents);
+     const summaryElement = window.document.querySelector('main :not(.notecard) > p:not(:empty)');
+     window.close();

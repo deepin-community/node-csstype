@@ -1,0 +1,22 @@
+{
+  "name": "csstype-test",
+  "private": true,
+  "dependencies": {
+    "csstype": "file:..",
+    "typescript3.5": "npm:typescript@~3.5.0",
+    "typescript3.6": "npm:typescript@~3.6.0",
+    "typescript3.7": "npm:typescript@~3.7.0",
+    "typescript3.8": "npm:typescript@~3.8.0",
+    "typescript3.9": "npm:typescript@~3.9.0",
+    "typescript4.0": "npm:typescript@~4.0.0",
+    "typescript4.1": "npm:typescript@~4.1.0",
+    "typescript4.2": "npm:typescript@~4.2.0",
+    "typescript4.3": "npm:typescript@~4.3.0",
+    "typescript4.4": "npm:typescript@~4.4.0",
+    "typescript4.5": "npm:typescript@~4.5.0",
+    "typescript4.6": "npm:typescript@~4.6.0",
+    "typescript4.7": "npm:typescript@~4.7.0",
+    "typescript4.8": "npm:typescript@~4.8.0",
+    "typescript4.9": "npm:typescript@~4.9.0"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "csstype-fixtures",
+  "private": true,
+  "dependencies": {
+    "csstype": "file:../..",
+    "oldcsstype": "npm:csstype@^2.6.21"
+  }
+}

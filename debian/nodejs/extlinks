@@ -1,0 +1,14 @@
+chokidar
+css-tree
+got
+jest
+mdn-browser-compat-data
+path
+ts-node
+turndown
+@types/glob
+@types/jsdom
+@types/node
+ts-jest		test
+typescript	test
+@types/jest	test
